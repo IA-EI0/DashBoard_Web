@@ -1,0 +1,81 @@
+{
+   "TimeStamp": "2024/06/05 09:00",
+   "TimeCheck": 20240605,
+   "Today": {
+      "Aomori": {
+         "Telop": "曇時々晴",
+         "Now": 14.8,
+         "Max": "21",
+         "Rain": {
+            "A1": "--%",
+            "A2": "0%",
+            "P1": "0%",
+            "P2": "0%"
+         },
+         "Icon": "https://www.jma.go.jp/bosai/forecast/img/201.svg"
+      },
+      "Hachinohe": {
+         "Telop": "曇時々晴",
+         "Now": 15.2,
+         "Max": "19",
+         "Rain": {
+            "A1": "--%",
+            "A2": "10%",
+            "P1": "10%",
+            "P2": "0%"
+         },
+         "Icon": "https://www.jma.go.jp/bosai/forecast/img/201.svg"
+      },
+      "Mutsu": {
+         "Telop": "曇時々晴",
+         "Now": 14.4,
+         "Max": "19",
+         "Rain": {
+            "A1": "--%",
+            "A2": "0%",
+            "P1": "0%",
+            "P2": "0%"
+         },
+         "Icon": "https://www.jma.go.jp/bosai/forecast/img/201.svg"
+      }
+   },
+   "Future": {
+      "Aomori": {
+         "Telop": "晴時々曇",
+         "Max": "21",
+         "Min": "11",
+         "Rain": {
+            "A1": "0%",
+            "A2": "0%",
+            "P1": "0%",
+            "P2": "0%"
+         },
+         "Icon": "https://www.jma.go.jp/bosai/forecast/img/101.svg"
+      },
+      "Hachinohe": {
+         "Telop": "晴時々曇",
+         "Max": "19",
+         "Min": "11",
+         "Rain": {
+            "A1": "0%",
+            "A2": "0%",
+            "P1": "0%",
+            "P2": "0%"
+         },
+         "Icon": "https://www.jma.go.jp/bosai/forecast/img/101.svg"
+      },
+      "Mutsu": {
+         "Telop": "晴時々曇",
+         "Max": "19",
+         "Min": "9",
+         "Rain": {
+            "A1": "0%",
+            "A2": "0%",
+            "P1": "0%",
+            "P2": "0%"
+         },
+         "Icon": "https://www.jma.go.jp/bosai/forecast/img/101.svg"
+      }
+   },
+   "Text": "高気圧が日本海にあって、ゆっくり東へ移動しています。<br>青森県は、曇りや晴れとなっています。<br>５日は、高気圧に覆われますが、気圧の谷や寒気の影響により、曇りや晴れとなるでしょう。<br>６日は、高気圧に覆われるため、晴れや曇りの見込みです。"
+}
