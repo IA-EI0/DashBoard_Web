@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC>
+<html lang="ja">
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <link rel="stylesheet" type="text/css" href="./style/css.css" />
+    <link rel="icon" type="image/png" href="./img/System/favicon.png" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta property="og:title" content="DashBoard Web : PC" />
+    <meta property="og:description" content="PC用のDashBoard Webです。" />
+    <meta property="og:site_name" content="DashBoard Web" />
+    <meta property="og:image" content="http://iaei0.starfree.jp/KOSEN-Program/img/System/thumbnail.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <script  src="https://code.jquery.com/jquery-3.6.2.min.js"
+    integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+    crossorigin="anonymous"></script>
+    <title>PC : DashBoard Web</title>
+  </head>
+  <script src="./style/function.js"></script>
+  <br>
+  <body style="margin: 0; padding: 0; background: #191919; width:1100;  margin-right:auto; margin-left:auto;line-height:40px;">
+    <center>
+      <p style="color:white; font-size: 40px;">DashBoard : WEB</p>
+      <div style="padding: 10px; margin-bottom: 5px; border: 13px double #00bfff; border-radius: 13px;">
+        <a id="ClockOutput" style="color:white; font-size: 35px;">時刻取得中
+        </a>
+        <br>
+        <a style="color:white; font-size: 25px">データ最終更新 :
+        </a>
+        <a id="LastUpdate" style="color:white; font-size: 25px">----/--/-- --:--
+        </a>
+      </div>
+      <br id="TimeWarning_br">
+      <div id="TimeWarning" style="padding: 5px; margin-bottom: 5px; border: 5px solid red; border-radius: 13px; display:none;">
+        <p id="TimeWarning_txt1" style="font-size:25px; color:white; display:none;">Warning!! : 最終更新が1日以上前です</p>
+        <p id="TimeWarning_txt2" style="font-size:20px; color:white; display:none;">このサイトの情報の正確さについては保証できません。</p>
+      </div>
+      <br>
+      <div style="padding: 10px; margin-bottom: 5px; border: 6px double #ffa07a; border-radius: 6px;">
+        <p id="WeatherArea" style="color:white; font-size:30px">今日・明日の天気(--)</p>
+        <div style="height:350px;">
+          <div class="box">
+            <div style="padding: 10px; margin-bottom: 10px; border: 3px solid #ffffff; width: auto; height:auto;">
+              <a style="color:white; font-size:30px">今日の天気
+              </a>
+              <div>
+                <img id="today_icon" src="./img/System/Loading.png" width="161px" height="125px" align="left"></img>
+                <a style="font-size:23px; color:white">
+                <b id="today_telop">-----</b>
+                </a>
+                <br>
+                <a style="font-size:24px; color:orangered" id="today_max">Max --[℃]
+                </a>
+                <br>
+                <a style="font-size:24px; color:orange" id="today_now">Now --[℃]
+                </a>
+                <br>
+                <br>
+                <table class="tg" align="center">
+                  <thead>
+                    <tr>
+                      <th class="tg-93kd">時刻</th>
+                      <th class="tg-93kd">00-06</th>
+                      <th class="tg-93kd">06-12</th>
+                      <th class="tg-93kd">12-18</th>
+                      <th class="tg-93kd">18-24</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tg-93kd">降水確率</td>
+                      <td class="tg-3xi5" id="today_rain1">--%</td>
+                      <td class="tg-3xi5" id="today_rain2">--%</td>
+                      <td class="tg-3xi5" id="today_rain3">--%</td>
+                      <td class="tg-3xi5" id="today_rain4">--%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div style="padding: 10px; margin-bottom: 10px; border: 3px solid #ffffff; width: auto; height:auto;">
+              <a style="color:white; font-size:30px">明日の天気
+              </a>
+              <div>
+                <img id="future_icon" src="./img/System/Loading.png" width="161px" height="125px" align="left"></img>
+                <a style="font-size:23px; color:white">
+                <b id="future_telop">-----</b>
+                </a>
+                <br>
+                <a style="font-size:24px; color:orangered" id="future_max">Max --[℃]
+                </a>
+                <br>
+                <a style="font-size:24px; color:cyan" id="future_min">Min --[℃]
+                </a>
+                <br>
+                <br>
+              </div>
+              <table class="tg" align="center">
+                <thead>
+                  <tr>
+                    <th class="tg-93kd">時刻</th>
+                    <th class="tg-93kd">00-06</th>
+                    <th class="tg-93kd">06-12</th>
+                    <th class="tg-93kd">12-18</th>
+                    <th class="tg-93kd">18-24</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-93kd">降水確率</td>
+                    <td class="tg-3xi5" id="future_rain1">--%</td>
+                    <td class="tg-3xi5" id="future_rain2">--%</td>
+                    <td class="tg-3xi5" id="future_rain3">--%</td>
+                    <td class="tg-3xi5" id="future_rain4">--%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 10px; margin-bottom: 10px; border: 3px solid #ffffff; width: auto; height:auto;">
+          <div class="txt-show">
+            <p style="color:white; font-size:30px;">天気概要文</p>
+          </div>
+          <div class="txt-hide">
+            <p id="weather_text" style="color:white; font-size:20px;">情報を取得しております。しばらくお待ちください。 (長い時間取得できていない場合、何らかの障害が発生している可能性があります。)</p>
+          </div>
+          <button class="more"></button>
+        </div>
+        <br>
+        <div class="selectdiv">
+          <select id="Area" onchange="WeatherChange()">
+            <option value="W1">青森(Aomori)</option>
+            <option value="W2">八戸(Hachinohe)</option>
+            <option value="W3">むつ(Mutsu)</option>
+          </select>
+        </div>
+        <br>
+        <a style="color:white; font-size:20px;" href="https://weather.tsukumijima.net/" target="_blank">天気予報 API (livedoor 天気互換)
+        </a>
+        <br>
+        <a style="color:white; font-size:20px;" href="https://www.cultivationdata.net/weather-web-api.html" target="_blank">気象データ Web API</a>
+      </div>
+      <br>
+      <div style="padding: 10px; margin-bottom: 5px; border: 6px double #008000; border-radius: 6px;">
+        <p id="TableTitle" style="color:white; font-size:30px">授業変更・休講情報(--)</p>
+        <p style="font-size:20px; color:white;">※各クラス最大10件まで表示されます。</p>
+        <p id="NotTable" style="font-size:35px; color:white; display:block;">授業変更・休講情報はありません</p>
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-zpnj{background-color:#efefef;border-color:#00009b;color:#333333;font-size:20px;text-align:center;vertical-align:top}
+        .tg .tg-ifwx{background-color:#34cdf9;border-color:#00009b;color:#333333;font-size:20px;text-align:center;vertical-align:top}
+        .tg .tg-7t6l{background-color:#34cdf9;border-color:#00009b;color:#333333;font-size:20px;text-align:center;vertical-align:top}
+        .tg .tg-pk47{background-color:#dae8fc;border-color:#00009b;color:#333333;font-size:20px;text-align:center;vertical-align:top}
+        </style>
+        <table class="tg">
+          <thead>
+            <tr id="TableTop" style="display:none;">
+              <th class="tg-7t6l">　月日　</th>
+              <th class="tg-ifwx">　時限　</th>
+              <th class="tg-ifwx">　変更前　</th>
+              <th class="tg-ifwx">　変更後　</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="Table1" style="display:none;">
+              <td id="Day1" class="tg-pk47"></td>
+              <td id="Time1" class="tg-pk47"></td>
+              <td id="B1" class="tg-pk47"></td>
+              <td id="A1" class="tg-pk47"></td>
+            </tr>
+            <tr id="Table2" style="display:none;">
+              <td id="Day2" class="tg-zpnj"></td>
+              <td id="Time2" class="tg-zpnj"></td>
+              <td id="B2" class="tg-zpnj"></td>
+              <td id="A2" class="tg-zpnj"></td>
+            </tr>
+            <tr id="Table3" style="display:none;">
+              <td id="Day3" class="tg-pk47"></td>
+              <td id="Time3" class="tg-pk47"></td>
+              <td id="B3" class="tg-pk47"></td>
+              <td id="A3" class="tg-pk47"></td>
+            </tr>
+            <tr id="Table4" style="display:none;">
+              <td id="Day4" class="tg-zpnj"></td>
+              <td id="Time4" class="tg-zpnj"></td>
+              <td id="B4" class="tg-zpnj"></td>
+              <td id="A4" class="tg-zpnj"></td>
+            </tr>
+            <tr id="Table5" style="display:none;">
+              <td id="Day5" class="tg-pk47"></td>
+              <td id="Time5" class="tg-pk47"></td>
+              <td id="B5" class="tg-pk47"></td>
+              <td id="A5" class="tg-pk47"></td>
+            </tr>
+            <tr id="Table6" style="display:none;">
+              <td id="Day6" class="tg-zpnj"></td>
+              <td id="Time6" class="tg-zpnj"></td>
+              <td id="B6" class="tg-zpnj"></td>
+              <td id="A6" class="tg-zpnj"></td>
+            </tr>
+            <tr id="Table7" style="display:none;">
+              <td id="Day7" class="tg-pk47"></td>
+              <td id="Time7" class="tg-pk47"></td>
+              <td id="B7" class="tg-pk47"></td>
+              <td id="A7" class="tg-pk47"></td>
+            </tr>
+            <tr id="Table8" style="display:none;">
+              <td id="Day8" class="tg-zpnj"></td>
+              <td id="Time8" class="tg-zpnj"></td>
+              <td id="B8" class="tg-zpnj"></td>
+              <td id="A8" class="tg-zpnj"></td>
+            </tr>
+            <tr id="Table9" style="display:none;">
+              <td id="Day9" class="tg-pk47"></td>
+              <td id="Time9" class="tg-pk47"></td>
+              <td id="B9" class="tg-pk47"></td>
+              <td id="A9" class="tg-pk47"></td>
+            </tr>
+            <tr id="Table10" style="display:none;">
+              <td id="Day10" class="tg-zpnj"></td>
+              <td id="Time10" class="tg-zpnj"></td>
+              <td id="B10" class="tg-zpnj"></td>
+              <td id="A10" class="tg-zpnj"></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <div class="selectdiv">
+          <select id="Class" onchange="TableChange()">
+            <option value="L1">L1</option>
+            <option value="L2">L2</option>
+            <option value="L3">L3</option>
+            <option value="L4">L4</option>
+            <option value="M1">M1</option>
+            <option value="E1">E1</option>
+            <option value="C1">C1</option>
+            <option value="Z1">Z1</option>
+            <option value="M2">M2</option>
+            <option value="E2">E2</option>
+            <option value="C2">C2</option>
+            <option value="Z2">Z2</option>
+            <option value="M3">M3</option>
+            <option value="E3">E3</option>
+            <option value="C3">C3</option>
+            <option value="Z3">Z3</option>
+            <option value="M4">M4</option>
+            <option value="E4">E4</option>
+            <option value="C4">C4</option>
+            <option value="Z4">Z4</option>
+            <option value="M5">M5</option>
+            <option value="E5">E5</option>
+            <option value="C5">C5</option>
+            <option value="Z5">Z5</option>
+            <option value="AM1">AM1</option>
+            <option value="AE1">AE1</option>
+            <option value="AC1">AC1</option>
+            <option value="AZ1">AZ1</option>
+            <option value="AM2">AM2</option>
+            <option value="AE2">AE2</option>
+            <option value="AC2">AC2</option>
+            <option value="AZ2">AZ2</option>
+          </select>
+          <p style="color:white; font-size:20px;">
+          <a href="https://www.hachinohe-ct.ac.jp/schoollife/messageboard/forms02.php" style="color:white" target="_blank">行事・授業・試験【八戸高専ホームページ】
+          </a>
+        </p>
+        </div>
+      </div>
+      <br>
+      <div style="padding: 10px; margin-bottom: 5px; border: 6px double #9932cc; border-radius: 6px;">
+        <p id="FortuneArea" style="color:white; font-size:30px;">今日の占い(--/--)</p>
+        <div style="height: 320px;">
+          <div style="padding: 10px; margin-bottom: 10px; border: 3px solid #ffffff; width:60%;">
+            <img src="./img/System/Loading.png" height="261px" id="Show_Sign"></img>
+            <img src="./img/System/Loading.png" height="232px" id="Show_Rank"></img>
+          </div>
+        </div>
+        <div class="selectdiv">
+          <select id="Sign" onchange="FortuneChange()">
+            <option value="F1">おひつじ座(Aries)</option>
+            <option value="F2">おうし座(Taurus)</option>
+            <option value="F3">ふたご座(Gemini)</option>
+            <option value="F4">かに座(Cancer)</option>
+            <option value="F5">しし座(Leo)</option>
+            <option value="F6">おとめ座(Virgo)</option>
+            <option value="F7">てんびん座(Libra)</option>
+            <option value="F8">さそり座(Scorpio)</option>
+            <option value="F9">いて座(Sagittarius)</option>
+            <option value="F10">やぎ座(Capricorn)</option>
+            <option value="F11">みずがめ座(Aquarius)</option>
+            <option value="F12">うお座(Pisces)</option>
+          </select>
+        </div>
+        <p style="color:white; font-size:20px;">
+          <a href="https://jugemkey.jp/api/waf/api_free.php" style="color:white" target="_blank">Web ad Fortune 無料版API
+          </a>
+          <br>
+          powerd by <a style ="color:white" href="http://jugemkey.jp/api/">JugemKey</a>
+          <br>
+          【PR】<a style ="color:white" href="http://www.tarim.co.jp/">原宿占い館 塔里木</a>
+        </p>
+      </div>
+      <p style="color:white; font-size:20px;">R04 : NIT(KOSEN) Hachinohe College , Self-Directed Research</p>
+      <script>
+        setInterval("Clock()",200);
+        setInterval("Time_Check()",200);
+      </script>
+    </center>
+  </body>
+</html>
