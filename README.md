@@ -19,4 +19,4 @@ Web DashBoard
 占い : [Web ad Fortune 無料版API](http://jugemkey.jp/api/waf/api_free.php)
 
 ## Licence
-[MIT Licence](https://github.com/IA-EI0/DashBoard_Web/blob/main/LICENSE)
+[Apache-2.0 license](https://github.com/IA-EI0/DashBoard_Web/blob/main/LICENSE)
