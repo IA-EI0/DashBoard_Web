@@ -12,9 +12,7 @@ Web DashBoard
 令和4年度では有料のレンタルサーバーを用いてデータを定期的に更新していましたが令和5年度に期限を迎えたため、現在は制作者のパソコンが起動している間、定期的にデータを更新するプログラムを常時作動させ更新させています。
 
 ## Source of information
-天気予報 : [天気予報 API（livedoor 天気互換）](https://weather.tsukumijima.net/)
-
-　　　　   [https://www.cultivationdata.net/weather-web-api.html](気象データ Web API)
+天気予報 : [天気予報 API（livedoor 天気互換）](https://weather.tsukumijima.net/)、[気象データ Web API](https://www.cultivationdata.net/weather-web-api.html)
 
 授業変更・休講情報 : [八戸高専ホームページ](https://www.hachinohe-ct.ac.jp/index.php)
 
