@@ -13,7 +13,9 @@ Web DashBoard
 
 ## Source of information
 天気予報 : [天気予報 API（livedoor 天気互換）](https://weather.tsukumijima.net/)、[https://www.cultivationdata.net/weather-web-api.html](気象データ Web API)
+
 授業変更・休講情報 : [八戸高専ホームページ](https://www.hachinohe-ct.ac.jp/index.php)
+
 占い : [Web ad Fortune 無料版API](http://jugemkey.jp/api/waf/api_free.php)
 
 ## Licence
