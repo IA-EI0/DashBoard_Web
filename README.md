@@ -9,11 +9,11 @@ Web DashBoard
 
 <img width="50%" src="https://github.com/IA-EI0/DashBoard_Web/assets/86182861/bdebd634-cd9f-4c0c-8dbf-6139eafc8e14"></img>
 
-①PythonがAPIにアクセスし、情報を取得する。
+①Pythonで書かれたプログラムがAPIにアクセスし、情報を取得する。
 
 ②APIで取得した情報を整理し、それをJSONファイルとして指定のディレクトリに出力する。
 
-③JavaScriptがJSONファイルを読み込み、ウェブサイトの指定の場所にデータと表示させるようにする。
+③JavaScriptで書かれたプログラムがJSONファイルを読み込み、ウェブサイトの指定の場所にデータと表示させるようにする。
 
 <br>
 
