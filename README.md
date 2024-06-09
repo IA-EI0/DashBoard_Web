@@ -7,7 +7,7 @@ Web DashBoard
 ## Description
 天気予報、授業変更・休講情報、占いの情報を取得するプログラム(Python)をレンタルサーバー上でCronを用いて定期実行させ、それぞれの情報をまとめたJsonファイルをサーバーの指定のファイルに配置し、サイトがJsonファイルを読み込むことでデータを表示しています。
 
-<img width="80%" src="https://github.com/IA-EI0/DashBoard_Web/assets/86182861/54e42011-e4ce-4572-a9d7-edf6f13a4cfb"></img>
+<img width="70%" src="https://github.com/IA-EI0/DashBoard_Web/assets/86182861/54e42011-e4ce-4572-a9d7-edf6f13a4cfb"></img>
 
 ①PythonがAPIにアクセスし、情報を取得する。
 
