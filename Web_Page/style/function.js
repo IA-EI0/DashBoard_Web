@@ -25,7 +25,7 @@ function Clock() {
 
 // Time Check
 function Time_Check() {
-  fetch('./json/Weather.json')
+  fetch('./json/Weather.json',{cache: "no-store"})
   .then(function (data) {
     return data.json();
   })
@@ -54,7 +54,7 @@ function Time_Check() {
 // Setup Function
 // Weather
 window.onload = function(){
-  fetch('./json/Weather.json')
+  fetch('./json/Weather.json',{cache: "no-store"})
   .then(function (data) {
     return data.json();
   })
@@ -100,7 +100,7 @@ window.onload = function(){
     document.getElementById("weather_text").innerHTML = w_text;
   });
   // Table
-  fetch('./json/Tables.json')
+  fetch('./json/Tables.json',{cache: "no-store"})
   .then(function (data) {
     return data.json();
   })
@@ -149,7 +149,7 @@ window.onload = function(){
     TableOutput(day1,day2,day3,day4,day5,day6,day7,day8,day9,day10,time1,time2,time3,time4,time5,time6,time7,time8,time9,time10,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
   });
   // Fortune
-  fetch('./json/Fortune.json')
+  fetch('./json/Fortune.json',{cache: "no-store"})
   .then(function (data) {
     return data.json();
   })
@@ -192,7 +192,7 @@ function WeatherOutput(ts,t_telop,t_max,t_now,t_rain1,t_rain2,t_rain3,t_rain4,t_
 function WeatherChange(){
     if(document.getElementById('Area')){
         id = document.getElementById('Area').value;
-          fetch('./json/Weather.json')
+          fetch('./json/Weather.json',{cache: "no-store"})
           .then(function (data) {
             return data.json();
           })
@@ -413,7 +413,7 @@ function TableOutput(day1,day2,day3,day4,day5,day6,day7,day8,day9,day10,time1,ti
 function TableChange(){
     if(document.getElementById('Class')){
         id = document.getElementById('Class').value;
-          fetch('./json/Tables.json')
+          fetch('./json/Tables.json',{cache: "no-store"})
           .then(function (data) {
             return data.json();
           })
@@ -1834,7 +1834,7 @@ function TableChange(){
 function FortuneChange(){
     if(document.getElementById('Sign')){
         id = document.getElementById('Sign').value;
-          fetch('./json/Fortune.json')
+          fetch('./json/Fortune.json',{cache: "no-store"})
           .then(function (data) {
             return data.json();
           })
